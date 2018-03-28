@@ -1,0 +1,80 @@
+<?php session_start();
+$mysqli = new mysqli('127.0.0.1', 'root', '123456');
+mysqli_select_db($mysqli,'sms');
+$user = $_SESSION['username'];
+
+$result = mysqli_query($mysqli, "SELECT * FROM sms.member WHERE NAME='$user'") or die("失败");
+?>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>学生成绩管理系统</title>
+    <style>
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/student.css">
+</head>
+
+<body bgcolor="#EFF#F6">
+<img src="images/leaf.gif" class="logo"></a>
+<h1 class="pagetitle">学生成绩管理系统</h1>
+<h5 class="tagline"><i>进 德 修 业 为 人 师 表</i></h5>
+
+
+<nav>
+    <hr>
+    <p style="margin:0px">
+        <a href="student.php">主页</a> &nbsp;
+        <a href="query.php">成绩查询</a> &nbsp;
+        <a href="stuinfo.php">个人信息</a> &nbsp;
+        <a href="modpwd.php">修改密码</a> &nbsp;
+        <a href="contact.php">联系我们</a></p>
+    <hr>
+</nav>
+<em>
+    <span style="font-size: smaller">当前位置--个人信息</span>
+</em>
+
+<div>
+    <table border="1" width="65%" align="center">
+        <tr>
+            <th width="5%">编号</th>
+            <th width="5%">姓名</th>
+            <th width="5%">性别</th>
+            <th width="5%">专业</th>
+            <th width="5%">更新</th>
+        </tr>
+        <?php
+
+        while ($myrow = mysqli_fetch_row($result)) {
+            ?>
+            <tr>
+            <td align="center"><?php echo $myrow[0]; ?></td>
+            <td align="center"><?php echo $myrow[1]; ?></td>
+            <td align="center"><?php echo $myrow[5]; ?></td>
+            <td align="center"><?php echo $myrow[3]; ?></td>
+            <td align="center"><a href="stu_update_info.php?ID=<?=$myrow[0]?>">更新</a></td>
+            </tr><?php
+        } ?>
+    </table>
+</div>
+
+<div style="bottom: 0px;position: absolute;">
+    <nav>
+        <hr>
+        <p style="margin:0px">
+            <a href="student.php">主页</a> &nbsp;
+            <a href="query.php">成绩查询</a> &nbsp;
+            <a href="stuinfo.php">个人信息</a> &nbsp;
+            <a href="modinfo.php">信息修改</a> &nbsp;
+            <a href="modpwd.php">修改密码</a> &nbsp;
+            <a href="contact.php">联系我们</a></p>
+        <hr>
+    </nav>
+    <p>Copyright &copy; 2016 学生成绩管理系统&trade;<br>
+        未经书面许可不得复制材料<br>
+        <a href="mailto:softinink@gmail.com?subject=Question/Comment" title="softinink@gmail.com">Contact the
+            Webmaster</a></p>
+</div>
+</body>
+</html>

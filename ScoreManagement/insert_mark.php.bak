@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>学生成绩管理系统</title>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+<form class="box login" method="post" action="insert_mark_submit.php" style="height: 330px;">
+    <fieldset class="boxBody">
+        <label>学生姓名</label>
+        <input type="text" tabindex="1" required name="studentname">
+        <label>科目</label>
+        <input type="text" tabindex="2" required name="subject">
+        <label>成绩</label>
+        <input type="text" tabindex="3" required name="mark">
+    </fieldset>
+    <footer>
+        <input type="submit" class="btnLogin" value="提交" tabindex="4" name="login">
+    </footer>
+</form>
+</body>
+</html>
+

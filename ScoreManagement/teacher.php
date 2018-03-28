@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>学生成绩管理系统</title>
+    <style>
+    </style>
+</head>
+
+<body>
+<h1 class="pagetitle" align="center">学生成绩管理系统-教师端</h1>
+<nav>
+    <hr>
+    <p align="center">
+        <a href="teacher.php">主页</a>
+        <a href="modmark.php">成绩修改</a>
+        <a href="management.php">学生管理</a>
+        <a href="teachermodpwd.php">修改密码</a>
+    </p>
+    <hr>
+</nav>
+<nav>
+	<p align="right">
+		<a>Design by 杨宇俊</a>
+	</p>
+</nav>
+</body>
+</html>
